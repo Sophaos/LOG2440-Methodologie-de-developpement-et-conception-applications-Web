@@ -1,0 +1,15 @@
+{
+  "name": "nightwatch",
+  "version": "1.0.0",
+  "description": "Nightwatch 2e2 tests",
+  "scripts": {
+    "clean": "rimraf ./node_modules",
+    "e2e": "nightwatch --config ./nightwatch.json",
+    "start": "npm run e2e"
+  },
+  "dependencies": {
+    "chromedriver": "109.0.0",
+    "nightwatch": "2.6.10",
+    "rimraf": "3.0.2"
+  }
+}

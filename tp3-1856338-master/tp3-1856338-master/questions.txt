@@ -1,0 +1,49 @@
+################ QUESTIONS TP3 ################
+
+En tant qu’équipe de développeurs, vous êtes confrontés à la problématique de conception
+suivante en lien avec votre projet en cours :
+Vous aimeriez rendre votre recherche par mot clé dynamique, c’est-à-dire, effectuer la
+recherche et voir les résultats mis à jour pendant que vous tapez chaque lettre, et non à
+travers un clic de bouton à la fin (similaire à ce que Spotify fait sur leur site web).
+
+--------------------------------------------------------------------------------------------------------------------------------
+1. Quels seraient les changements nécéssaires afin d’implémenter cette fonctionnalité ?
+
+Réponse:
+
+Dépendamment de comment on désire l'implémenter, il est possible de le faire entièrement dans le client ou bien en partie dans le serveur.
+Pour le filtrage entièrement dans le client, en considérant que les éléments sont disponibles, il suffit d'ajouter un event listener pour écouter le input à chaque fois qu'il change.
+Lorsqu'il change, il suffit de voir si la valeur du filtre est inclue pour chacun des mots d'une certaines liste.
+s'il correspond au filtre, il est garder dans la liste, sinon il est ignorer.
+Cette nouvelle liste sera alors afficher de la manière que l'on veut.
+
+Il est possible de manipuler le filtre en l'envoyant dans le backend.
+Pour ce dernier cas, la gestion du filtrage ce fait dans le backend et il nous retournera la liste filtrer selon un certain filtre. Le visuel est laissé à nous.
+--------------------------------------------------------------------------------------------------------------------------------
+2. Est-ce qu’il y a des problèmes potentiels avec cette approche ? Justifiez.
+
+Réponse:
+
+Oui, il peut y avoir des problème de performance, car il faudra écouter le input qui changera peut-être souvent.
+Non seulement le input peut souvent changer, mais dépendammnent la grosseur de la liste, il peut y avoir des serieux problèmes de performance.
+La procédure de filtrage est appliqué pour chaque changement du input. Une manière de régler ce problème est d'ajouter un debouche time pour écouter le dernier change du input après un certain temps.
+Une autre manière additionnel pour cette approche est de gérer le tout dans le backend en revoyant une partie de la liste avec un nombre de page de total pour permettre la pagination.
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+3. Quels tests devriez vous mettre en place pour bien tester cette fonctionnalité ? 
+Ne vous limitez pas aux tests unitaires : considérez tous les types de tests vus dans le cours.
+
+Réponse:
+
+Plusieurs tests sont pertinents pour tester cette foncitonnalité.
+Test unitaire: 
+- déterminer si le filtre marche bien en essayant différents inputs.
+- déterminer si le filtre marche avec des listes de valeurs différentes
+- tester les cas limites: valeur vide
+
+Test de performance:
+- tester avec une très grande liste pour analyser la performance
+
+Tests d'acceptation:
+- valider si résultat désiré est bien, ou s'il faudrait par exemple rajouter de la pagination

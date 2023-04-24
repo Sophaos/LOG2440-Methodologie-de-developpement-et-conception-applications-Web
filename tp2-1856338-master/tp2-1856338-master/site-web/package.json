@@ -1,0 +1,23 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "Site Web de PolyPlay",
+  "scripts": {
+    "clean": "rimraf ./node_modules",
+    "start": "lite-server .",
+    "e2e": "nightwatch --config ./nightwatch.json",
+    "lint": "eslint ./"
+  },
+  "author": "Nikolay Radoev",
+  "dependencies": {
+    "lite-server": "2.6.1"
+  },
+  "devDependencies": {
+    "chromedriver": "109.0.0",
+    "eslint": "8.33.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-plugin-import": "2.27.5",
+    "nightwatch": "2.6.10",
+    "rimraf": "3.0.2"
+  }
+}
